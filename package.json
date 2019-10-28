@@ -7,6 +7,6 @@
   "main": "lib/module.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Pinegin/vue-retailrocket.git"
+    "url": "https://github.com/Pinegin/vue-retailrocket.git"
   }
 }
