@@ -1,5 +1,5 @@
 {
-  "name": "@nuxtjs/vue-retailrocket",
+  "name": "vue-retailrocket",
   "version": "1.0.0",
   "description": "",
   "main": "lib/module.js",
