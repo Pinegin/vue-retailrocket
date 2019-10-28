@@ -1,19 +1,12 @@
 {
   "name": "vue-retailrocket",
   "version": "1.0.0",
-  "description": "",
+  "description": "RetailRocket tracker",
+  "author": "Антон Пинегин <a.pinegin@autorus.ru>",
+  "license": "ISC",
   "main": "lib/module.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Pinegin/vue-retailrocket.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Pinegin/vue-retailrocket/issues"
-  },
-  "homepage": "https://github.com/Pinegin/vue-retailrocket#readme"
+  }
 }
