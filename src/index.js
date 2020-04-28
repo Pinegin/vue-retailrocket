@@ -64,6 +64,18 @@ const rrApi = {
       // console.log('order', transactionId, items);
     } catch (e) {
     }
+  },
+  setEmail(email, info) {
+    try {
+      if (info) {
+        window['rrApi'].setEmail(email, info);
+      }
+      else {
+        window['rrApi'].setEmail(email);
+      }
+      // console.log('setEmail', email, info);
+    } catch (e) {
+    }
   }
 };
 
