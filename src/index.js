@@ -55,13 +55,13 @@ const rrApi = {
     } catch (e) {
     }
   },
-  order(transactionId, items) {
+  order({transaction, items}) {
     try {
       window['rrApi'].order({
-        transaction: transactionId,
+        transaction,
         items
       });
-      // console.log('order', transactionId, items);
+      // console.log('order', transaction, items);
     } catch (e) {
     }
   },
