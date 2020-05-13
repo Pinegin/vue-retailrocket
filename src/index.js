@@ -33,47 +33,96 @@ function loadScript(options = {}) {
   }(document));
 }
 
+function rrApiIsLoad() {
+  return window['rrApi'].initialized === undefined
+}
+
 const rrApi = {
   viewCategory(categoryId) {
+    if (rrApiIsLoad()) {
+      window["rrApiOnReady"].push(function () {
+        try {
+          window['rrApi'].categoryView(categoryId);
+        } catch (e) {
+        }
+      });
+      return;
+    }
+
     try {
       window['rrApi'].categoryView(categoryId);
-      // console.log('categoryView', categoryId);
     } catch (e) {
     }
   },
   viewProduct(productId) {
+    if (rrApiIsLoad()) {
+      window["rrApiOnReady"].push(function () {
+        try {
+          window['rrApi'].view(productId);
+        } catch (e) {
+        }
+      });
+      return;
+    }
+
     try {
       window['rrApi'].view(productId);
-      // console.log('view', productId);
     } catch (e) {
     }
   },
   addToCart(productId) {
+    if (rrApiIsLoad()) {
+      window["rrApiOnReady"].push(function () {
+        try {
+          window['rrApi'].addToBasket(productId);
+        } catch (e) {
+        }
+      });
+      return;
+    }
+
     try {
       window['rrApi'].addToBasket(productId);
-      // console.log('addToBasket', productId);
     } catch (e) {
     }
   },
   order({transaction, items}) {
-    try {
-      window['rrApi'].order({
-        transaction,
-        items
+    if (rrApiIsLoad()) {
+      window["rrApiOnReady"].push(function () {
+        try {
+          window['rrApi'].order({transaction, items});
+        } catch (e) {
+        }
       });
-      // console.log('order', transaction, items);
+      return;
+    }
+
+    try {
+      window['rrApi'].order({transaction, items});
     } catch (e) {
     }
   },
   setEmail(email, info) {
+    if (rrApiIsLoad()) {
+      window["rrApiOnReady"].push(function () {
+        try {
+          if (info) {
+            window['rrApi'].setEmail(email, info);
+          } else {
+            window['rrApi'].setEmail(email);
+          }
+        } catch (e) {
+        }
+      });
+      return;
+    }
+
     try {
       if (info) {
         window['rrApi'].setEmail(email, info);
-      }
-      else {
+      } else {
         window['rrApi'].setEmail(email);
       }
-      // console.log('setEmail', email, info);
     } catch (e) {
     }
   }
