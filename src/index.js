@@ -125,6 +125,22 @@ const rrApi = {
       }
     } catch (e) {
     }
+  },
+  welcomeSequence(email) {
+    if (rrApiIsLoad()) {
+      window["rrApiOnReady"].push(function() {
+        try {
+          window['rrApi'].welcomeSequence(email);
+        } catch (e) {
+        }
+      });
+      return;
+    }
+
+    try {
+      window['rrApi'].welcomeSequence(email);
+    } catch (e) {
+    }
   }
 };
 
