@@ -92,6 +92,10 @@ const rrApi = {
         try {
           window['rrApi'].order({transaction, items});
         } catch (e) {
+          if (window?.$nuxt?.$yaMetrika) window.$nuxt.$yaMetrika('reply_from_RR', {
+            orderNumber: transaction,
+            reason: e.message,
+          })
         }
       });
       return;
