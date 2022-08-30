@@ -145,6 +145,54 @@ const rrApi = {
       window['rrApi'].welcomeSequence(email);
     } catch (e) {
     }
+  },
+  getVisitorState(cb) {
+    if (rrApiIsLoad()) {
+      window["rrApiOnReady"].push(function() {
+        try {
+          window['rrApi'].emailResubscription.getVisitorState({
+            "onSuccessCallback": function (d) {
+              cb(d);
+            }
+          });
+        } catch (e) {
+        }
+      });
+      return;
+    }
+
+    try {
+      window['rrApi'].emailResubscription.getVisitorState({
+        "onSuccessCallback": function (d) {
+          cb(d);
+        }
+      });
+    } catch (e) {
+    }
+  },
+  startResubscription(cb) {
+    if (rrApiIsLoad()) {
+      window["rrApiOnReady"].push(function() {
+        try {
+          window['rrApi'].emailResubscription.startResubscription({
+            "onSuccessCallback": function (d) {
+              cb(d);
+            }
+          });
+        } catch (e) {
+        }
+      });
+      return;
+    }
+
+    try {
+      window['rrApi'].emailResubscription.startResubscription({
+        "onSuccessCallback": function (d) {
+          cb(d);
+        }
+      });
+    } catch (e) {
+    }
   }
 };
 
